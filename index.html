@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Beerpong Turnierplaner</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h1>Beerpong Turnierplaner &#127867; &#x1F93E;</h1>
+            <div id="teams">
+                <label for="participants">Teilnehmer:</label>
+                <textarea id="participants" rows="20"
+                    placeholder="Teilnehmernamen getrennt durch Zeilenumbrüche"></textarea>
+                <button id="generateTeamsBtn">Generiere Teams und Spielplan</button>
+            </div>
+        </div>
+
+        <div id="matchups" style="display: none;"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

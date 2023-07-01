@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-image: url('https://images.unsplash.com/photo-1575037614876-c38a4d44f5b8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    width: 80vw;
+    padding: 30px;
+    border-radius: 32px;
+    background: var(--windows-glass, rgba(128, 128, 128, 0.30));
+    background-blend-mode: luminosity;
+    /* Blur */
+    backdrop-filter: blur(50px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 85vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+/* Webkit based browsers (Google Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 50px;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 32px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #eeeeee;
+}
+
+.card {
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #555555;
+}
+
+textarea {
+    width: 95%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    resize: vertical;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    color: #333333;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4e9af1;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #357ed6;
+}
+
+#teams,
+#matchups {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    height: fit-content;
+}
+
+#matchups {
+    flex-wrap: wrap;
+    max-height: 75vh;
+    overflow-y: auto;
+}
+
+#teams {}
+
+.team,
+.matchup {
+    margin-bottom: 10px;
+    color: #333333;
+}
+
+.team-table {
+    width: 100%;
+    text-align: center;
+}
+
+.matchup-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.matchup-table thead th {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: center;
+    color: #555555;
+
+}
+
+.matchup-table tbody tr:nth-child(even) {
+    background-color: #f6f6f6;
+}
+
+.matchup-table tbody td {
+    padding: 10px;
+    text-align: center;
+    color: #333333;
+}
+
+.matchup-table tbody td {
+    font-weight: 700;
+}
+
+#resetButton {
+    margin-top: 20px;
+}
+
+.team-table tbody td {
+    padding: 5px;
+    text-align: center;
+    color: #333333;
+}
+
+.team-table tbody td {}
