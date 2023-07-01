@@ -94,12 +94,26 @@ function generateDummyNames(count) {
 }
 
 function createTeams(participants) {
+    // Shuffle the participants array
+    participants = shuffleArray(participants);
+
     var teams = [];
     while (participants.length >= 2) {
         var team = [participants.pop(), participants.pop()];
         teams.push(team);
     }
     return teams;
+}
+
+// Helper function to shuffle an array using the Fisher-Yates algorithm
+function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    return array;
 }
 
 function generateMatchups(teams) {
