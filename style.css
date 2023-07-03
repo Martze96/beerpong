@@ -110,7 +110,11 @@ button:hover {
     margin-left: 20px;
 }
 
-#teams {}
+#teams {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 
 .team,
 .matchup {
@@ -161,3 +165,7 @@ button:hover {
 }
 
 .team-table tbody td {}
+
+
+
+#generateTeamsBtn {}

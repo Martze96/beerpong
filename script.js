@@ -324,7 +324,7 @@ function handleWinnerSelect(event) {
 
 function displayRanking(teams) {
     var rankingContainer = document.getElementById('ranking');
-    rankingContainer.innerHTML = '<h3>Rangliste:</h3>';
+    rankingContainer.innerHTML = '<h3>Platzierungsliste:</h3>';
 
     var table = document.createElement('table');
     table.className = 'ranking-table';
@@ -447,11 +447,15 @@ function calculatePointsAndSort() {
     for (var i = 0; i < pointsArray.length; i++) {
         let row = document.createElement('tr');
         let place = document.createElement('td');
-        place.textContent = i + 1;
+        place.textContent = i + 1 + '.';
+        place.style.textAlign = 'center';
+        place.style.fontWeight = '700';
         let teamName = document.createElement('td');
         teamName.textContent = pointsArray[i].team;
         let points = document.createElement('td');
+        points.style.textAlign = 'center';
         points.textContent = pointsArray[i].points;
+        points.style.fontWeight = '700';
         row.appendChild(place);
         row.appendChild(teamName);
         row.appendChild(points);
