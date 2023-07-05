@@ -148,28 +148,30 @@ function shuffleArray(array) {
 function generateMatchups(teams) {
     var matchups = [];
     var previousTeam = null;
+    var numTeams = teams.length;
+    var rounds = numTeams - 1;
+    var halfNumTeams = Math.ceil(numTeams / 2);
 
     // Generate all possible matchups
-    for (var i = 0; i < teams.length - 1; i++) {
-        for (var j = i + 1; j < teams.length; j++) {
-            if (previousTeam === null || teams[i] !== previousTeam) {
-                var matchup = {
-                    team1: teams[i],
-                    team2: teams[j]
-                };
-                matchups.push(matchup);
-                previousTeam = teams[j];
+    for (var round = 0; round < rounds; round++) {
+        var matchupsRound = [];
+
+        for (var i = 0; i < halfNumTeams; i++) {
+            var team1 = teams[i];
+            var team2 = teams[numTeams - 1 - i];
+
+            if (previousTeam === null || team1 !== previousTeam) {
+                matchupsRound.push({ team1: team1, team2: team2 });
+                previousTeam = team2;
             }
         }
+
+        matchups.push(matchupsRound);
+        teams.splice(1, 0, teams.pop());
     }
 
-    // Shuffle the matchups randomly
-    for (var k = matchups.length - 1; k > 0; k--) {
-        var randomIndex = Math.floor(Math.random() * (k + 1));
-        var temp = matchups[k];
-        matchups[k] = matchups[randomIndex];
-        matchups[randomIndex] = temp;
-    }
+    // Flatten the matchups array
+    matchups = matchups.reduce((acc, val) => acc.concat(val), []);
 
     return matchups;
 }
