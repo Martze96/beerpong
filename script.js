@@ -276,8 +276,10 @@ function displayMatchups(matchups) {
 
         if (index % (teamSize / 2) === 0) {
             let roundRow = document.createElement('tr');
-            roundRow.style.backgroundColor = 'rgb(255, 234, 207)';
+            roundRow.style.backgroundColor = 'rgb(123, 162, 229)';
             let roundCell = document.createElement('td');
+            roundCell.style.color = 'white';
+            roundCell.style.paddingLeft = '30px'
             roundCell.style.textAlign = 'left'
             roundCell.colSpan = '4';
             roundCounter++;
