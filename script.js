@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
         matchupsDiv.style.display = 'flex';
         rankingDiv.innerHTML = localStorage.getItem('ranking');
         rankingDiv.style.display = 'block';
+
         document.getElementById("resetButton").addEventListener('click', () => {
             var confirmed = confirm('Möchtest du sicher den Spielplan und alle Teilnehmer zurücksetzen?');
 
@@ -172,7 +173,6 @@ function generateMatchups(teams) {
 
     // Flatten the matchups array
     matchups = matchups.reduce((acc, val) => acc.concat(val), []);
-
     return matchups;
 }
 
@@ -269,7 +269,22 @@ function displayMatchups(matchups) {
 
     // Create table body
     var tbody = document.createElement('tbody');
+    // calculate team Size
+    const teamSize = Math.ceil(Math.sqrt(matchups.length * 2));
+    let roundCounter = 0;
     matchups.forEach(function (matchup, index) {
+
+        if (index % (teamSize / 2) === 0) {
+            let roundRow = document.createElement('tr');
+            roundRow.style.backgroundColor = 'rgb(255, 234, 207)';
+            let roundCell = document.createElement('td');
+            roundCell.style.textAlign = 'left'
+            roundCell.colSpan = '4';
+            roundCounter++;
+            roundCell.textContent = "Runde " + roundCounter;
+            roundRow.appendChild(roundCell);
+            tbody.appendChild(roundRow);
+        }
 
         var matchupRow = document.createElement('tr');
         var matchupCell = document.createElement('td');
@@ -413,7 +428,8 @@ function calculatePointsAndSort() {
     // Calculate points based on team selections in matchups
     for (var i = 1; i < matchups.length; i++) {
         var winnerSelection = matchups[i].querySelector('.winner-selection');
-        var winningTeam = winnerSelection.value;
+        if (!winnerSelection) { continue; }
+        var winningTeam = winnerSelection.value
         if (winningTeam !== '') {
             points[winningTeam] += 1;
         }
@@ -465,7 +481,6 @@ function calculatePointsAndSort() {
         // Apply styles to the first three rows
         if (i === 0) {
             row.style.backgroundColor = 'gold';
-            console.log("goold")
         } else if (i === 1) {
             row.style.backgroundColor = 'silver';
         } else if (i === 2) {
