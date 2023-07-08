@@ -258,6 +258,7 @@ function displayMatchups(matchups) {
     var thead = document.createElement('thead');
     var headerRow = document.createElement('tr');
     var headerCell = document.createElement('th');
+    headerCell.style.borderRadius = '5px';
     headerCell.textContent = 'Matchup';
     headerRow.appendChild(headerCell);
     headerCell.colSpan = 3;
@@ -283,6 +284,7 @@ function displayMatchups(matchups) {
             roundCell.style.paddingLeft = '30px'
             roundCell.style.textAlign = 'left'
             roundCell.colSpan = '4';
+            roundCell.style.borderRadius = '5px'
             roundCounter++;
             roundCell.textContent = "Runde " + roundCounter;
             roundRow.appendChild(roundCell);
